@@ -1,0 +1,78 @@
+package leet.array;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class FindDisappearedNumbers {
+/*思路：初始化list，1~数组长度。然后遍历数组，遍历数组，从list中删除掉遍历到的元素。 */
+	public static List<Integer> findDisappearedNumbers(int[] nums) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			list.add(i + 1);
+		}
+		for (int i = 0; i < nums.length; i++) {
+			list.remove((Integer) nums[i]);
+		}
+		/*
+		 * Iterator<Integer> iterator = list.iterator();
+		 * while(iterator.hasNext()){ System.out.print(iterator.next()+" "); }
+		 */
+		return list;
+	}
+
+	public static void main(String[] args) {
+		int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
+		// System.out.println(findDisappearedNumbers(nums));
+		// System.out.println(findDisappearedNumbers3(nums));
+		System.out.println(findDisappearedNumbers2(nums));
+
+	}
+
+	// 以上的这种方法在测试用例的（30/34）出现超时问题，提供下面两种解题方法（两种思路同工之妙）
+	// method1;利用脚标，利用取负数（取绝对值还原），
+	public static List<Integer> findDisappearedNumbers2(int[] nums) {
+		List<Integer> res = new ArrayList<>();
+		int n = nums.length;
+		for (int i = 0; i < nums.length; i++) {
+			nums[Math.abs(nums[i]) - 1] = -Math
+					.abs(nums[Math.abs(nums[i]) - 1]);
+		}
+		for (int i = 0; i < nums.length; i++)
+			if (nums[i] > 0)
+				res.add(i + 1);
+		return res;
+	}
+
+	// method2写法二The basic idea is that we iterate through the input array and mark elements as negative using nums[nums[i] -1] = -nums[nums[i]-1]. In this way all the numbers that we have seen will be marked as negative. In the second iteration, if a value is not marked as negative, it implies we have never seen that index before, so just add it to the return list.
+	/*public List<Integer> findDisappearedNumbers2(int[] nums) {
+		List<Integer> ret = new ArrayList<Integer>();
+
+		for (int i = 0; i < nums.length; i++) {
+			int val = Math.abs(nums[i]) - 1;
+			if (nums[val] > 0) {
+				nums[val] = -nums[val];
+			}
+		}
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] > 0) {
+				ret.add(i + 1);
+			}
+		}
+		return ret;
+	}*/
+
+	// method2;利用脚标，利用取n余数（取余还原）
+	public static List<Integer> findDisappearedNumbers3(int[] nums) {
+		List<Integer> res = new ArrayList<>();
+		int n = nums.length;
+		for (int i = 0; i < nums.length; i++)
+			nums[(nums[i] - 1) % n] += n;
+		for (int i = 0; i < nums.length; i++)
+			if (nums[i] <= n)
+				res.add(i + 1);
+		return res;
+	}
+
+}

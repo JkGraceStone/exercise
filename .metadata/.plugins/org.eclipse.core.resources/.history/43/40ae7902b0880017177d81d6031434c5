@@ -1,0 +1,39 @@
+package HuaWei;
+
+import java.util.Scanner;
+
+public class DistributeString {
+	public static void main(String[] args) {
+		// 用一个函数处理。
+		Scanner scanner = new Scanner(System.in);
+		String  str1 = scanner.next();
+		String str2 = scanner.next();
+		change(str1);
+		change(str2);
+	}
+
+	public static void change(String str) {
+		// 计算长度，看需要几次输出。
+		if (str == null || str.equals("")) return ;
+		int num = str.length();
+		char[] c =str.toCharArray();
+//		int j = 0;
+		for (int i = 0; i < c.length; i++) {
+			
+		}
+		for (int i = num,j = 0; i < 0;i--,j++) {
+			System.out.print(c[j]);
+			if ((j + 1) % 8 == 0) {
+				System.out.println();
+			}
+		}
+		// 计算需要添加的0的个数
+		int addnum = 0;
+		if(num%8 != 0)
+		addnum = 8 - num % 8;
+		for (int i = 0; i < addnum ; i++) {
+			System.out.print(0);
+		}
+		System.out.println();
+	}
+}

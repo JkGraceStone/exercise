@@ -1,0 +1,18 @@
+-- VERSION_4
+-- START DISKCACHE_2
+D:\SoftWare\eclipse\com.jiang.test\.metadata\.plugins\org.eclipse.core.resources\.projects\PythonLearn2\com.python.pydev.analysis\v2_indexcache
+test1.test_urllib2|1501401566812279000|D:\SoftWare\eclipse\com.jiang.test\PythonLearn2\src\test1\test_urllib2.py
+test1.__init__|1501399175220012000|D:\SoftWare\eclipse\com.jiang.test\PythonLearn2\src\test1\__init__.py
+-- END DISKCACHE
+-- START DICTIONARY
+1
+1=test1.test_urllib2
+-- END DICTIONARY
+-- START TREE 1
+2
+res|1|response1!11@
+url|1|url!11@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

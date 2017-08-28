@@ -1,0 +1,28 @@
+package leet.string;
+
+public class TestEasy {
+	public boolean judgeCircle(String moves) {
+        //1【思路】.把string拆分为字节数组，然后统计方向。
+        char[] movesChar = moves.toCharArray();
+        int udCount = 0;
+        int lrCount = 0;
+        for(char c :movesChar){
+        	if(c=='U'){
+        		udCount++;
+        	}else if (c=='D') {
+				udCount--;
+			}else if (c=='R') {
+				lrCount++;
+			}else if (c=='L') {
+				lrCount--;
+			}else {
+				return false;
+			}
+        }
+        return lrCount==0&&udCount==0 ? true:false;
+	}
+	public static void main(String[] args){
+		
+	}
+	
+}

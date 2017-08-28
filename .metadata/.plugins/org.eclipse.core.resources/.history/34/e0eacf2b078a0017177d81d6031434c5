@@ -1,0 +1,25 @@
+package leet.sort;
+
+public class Sort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//10:06
+		
+	}
+	//这几大排序算法，一定要烂熟于心。从1数据的排序图，2基本的思想，3文字清楚的描述，4手撸代码，5到时间复杂度，稳定性。
+	public static void inserSort(int[] a){
+		int i,j,temp;
+		int n = a.length;
+		for(i =0 ;i < n-1;i++){//1.要排序的个数
+			temp = a[i+1];//2，第一个元素可以看成是已经排列的有序数集合。
+			j= i;
+			while(j>-1 && temp<=a[j]){
+				a[j+1] = a[j];
+				j--;
+			}
+			a[j+1]=temp;
+		}
+	}
+
+}

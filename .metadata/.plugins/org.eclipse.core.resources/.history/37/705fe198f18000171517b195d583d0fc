@@ -1,0 +1,197 @@
+package leet.array;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * @author jkb
+ */
+public class Xym {
+	/**
+	 * 功能：Java读取txt文件的内容 步骤：1：先获得文件句柄 2：获得文件句柄当做是输入一个字节码流，需要对这个输入流进行读取
+	 * 3：读取到输入流后，需要读取生成字节流 4：一行一行的输出。readline()。 备注：需要考虑的是异常情况
+	 * 4.解析文本数据。
+	 * @param filePath
+	 */
+	public static void readTxtFile(String filePath) {
+		try {
+			String encoding = "GBK";
+			File file = new File(filePath);
+			if (file.isFile() && file.exists()) { // 判断文件是否存在
+				InputStreamReader read = new InputStreamReader(
+						new FileInputStream(file), encoding);// 考虑到编码格式
+				BufferedReader bufferedReader = new BufferedReader(read);
+				String lineTxt = null;
+//				lineTxt = bufferedReader.readLine();
+				int i = 2;
+				//list1用于指向源数据的第1列
+				//list2用于指向源数据的第2列
+				//list3用于指向更改后数据的相同规则
+				//list4用于指向更改后数据的不同规则
+				List<Person> list1 = new ArrayList<Person>();
+				List<Person> list2 = new ArrayList<Person>();
+				List<Person> list3 = new ArrayList<Person>();
+				List<Person> list4 = new ArrayList<Person>();
+				while ((lineTxt = bufferedReader.readLine()) != null) {
+					// System.out.println(lineTxt);
+					String s1 = lineTxt;
+					String[] strings = s1.split("\t");
+					for (int j = 0; j < strings.length; j++) {
+						String s2 = strings[j].substring(1,
+								strings[j].length() - 1);
+						String[] para = s2.split(",");
+						Person person = new Person();
+						person.setName(para[0]);
+						person.setS(Double.parseDouble(para[1]));
+						person.setC(Double.parseDouble(para[2]));
+						if (i % 2 == 0) {
+							list1.add(person);
+						} else {
+							list2.add(person);
+						}
+						i++;
+					}
+				}
+//				System.out.println(list1);
+//				System.out.println(list2);
+				
+				//迭代处理list中的内容：
+				change(list1, list2, list3, list4);
+				System.out.println("-----------------------------");
+				System.out.println("结果:");
+				System.out.println("相同规则:");
+				for (Iterator iterator = list3.iterator(); iterator.hasNext();) {
+					Person person = (Person) iterator.next();
+					System.out.println(person.toString());
+				}
+				System.out.println("不同规则:");
+				for (Iterator iterator = list4.iterator(); iterator.hasNext();) {
+					Person person = (Person) iterator.next();
+					System.out.println(person.toString());
+				}
+				read.close();
+			} else {
+				System.out.println("找不到指定的文件");
+			}
+		} catch (Exception e) {
+			System.out.println("读取文件内容出错");
+			e.printStackTrace();
+		}
+
+	}
+	/**
+	 * 辅助方法(处理解析后的数据。分类存放)
+	 * @param list1指向源数据的第1列
+	 * @param list2指向源数据的第2列
+	 * @param list3用于指向更改后数据的相同规则
+	 * @param list4用于指向更改后数据的不同规则
+	 */
+	public static void change(List list1,List list2,List list3,List list4){
+		list1.iterator();
+		for (Iterator iterator = list1.iterator(); iterator.hasNext();) {
+			Person p1 = (Person) iterator.next();
+			for (Iterator iterator2 = list2.iterator(); iterator2.hasNext();) {
+				Person p2 = (Person) iterator2.next();
+				if (p1.getName().equals(p2.getName())) {
+					p1.setS( 0.8*p1.getS() +0.2*p2.getS());
+					p1.setC( 0.8*p1.getC() + 0.2*p2.getC());
+					list3.add(p1);
+					iterator.remove();
+					iterator2.remove();
+				}
+			}
+		}
+		for (Iterator iterator = list1.iterator(); iterator.hasNext();) {
+			Person p1 = (Person) iterator.next();
+			list4.add(p1);
+		}
+		for (Iterator iterator = list2.iterator(); iterator.hasNext();) {
+			Person p2 = (Person) iterator.next();
+			list4.add(p2);
+		}
+	}
+	public static void main(String argv[]) {
+		String filePath = "D:\\SoftWare\\eclipse\\com.jiang.test\\JavaData\\src\\加权求和测试数据.txt";
+		// "res/";
+		readTxtFile(filePath);
+	}
+
+}
+
+class Person {
+
+	private String name;
+	private double s;
+	private double c;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getS() {
+		return s;
+	}
+
+	public void setS(double s) {
+		this.s = s;
+	}
+
+	public double getC() {
+		return c;
+	}
+
+	public void setC(double c) {
+		this.c = c;
+	}
+
+	@Override
+	public String toString() {
+		DecimalFormat df=new DecimalFormat("########.##");
+		return name + "," + df.format(s) + "," + df.format(c);
+	}
+	
+
+}
+/*
+ * 删除字符串最后一个字符的几种方法
+ * 
+ * 偶然看到的，记录一下，以免忘记
+ * 
+ * 字符串：string s = "1,2,3,4,5,"
+ * 
+ * 目标：删除最后一个 ","
+ * 
+ * 方法： 1、用的最多的是Substring，这个也是我一直用的
+ * 
+ * 
+ * s = s.Substring(0,s.Length - 1)
+ * 
+ * 
+ * 2、用 RTrim，这个我原来只知道用来删除最后的空格，也没有仔细看过其它的用法，才发现可以直接trim掉一些字符
+ * 
+ * 
+ * s = s.ToString().RTrim(',')
+ * 
+ * 3、用TrimEnd,这个东西和RTrim差不多，区别是这个传递的是一个字符数组，而RTrim可以是任何有效的字符串
+ * 
+ * 
+ * s=s.TrimEnd(',') //如果要删除"5,"，则需要这么写 char[] MyChar = {'5',','}; s =
+ * s.TrimEnd(MyChar); //s = "1,2,3,4"
+ * 
+ * ======================================================== Map<String,String>
+ * paraMap=new HashMap<String,String>(); String
+ * str="name=zhang,age=30,sex=male"; String[] para=str.split(","); for(int
+ * i=0,len=para.length;i<len;i++){ String[] temp=para[i].split("=");
+ * paraMap.put(temp[0], temp[1]); } Person p=new Person();
+ * p.setName(paraMap.get("name"));
+ */

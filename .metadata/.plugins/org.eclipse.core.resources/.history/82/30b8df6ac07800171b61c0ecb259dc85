@@ -1,0 +1,76 @@
+package leet.array;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Text {
+	//
+	public static int[] twosum(int[] nums, int target) {
+		int[] result = { 0, 0 };
+		// int[] result = new int[2];
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = i + 1; j < nums.length; j++) {
+				if (nums[i] + nums[j] == target) {
+					result[0] = i;
+					result[1] = j;
+				}
+			}
+		}
+
+		return result;
+	}
+
+	// 375
+	public static int getMoneyAmount(int n) {
+		int count = 0;
+		Scanner scanner = new Scanner(System.in);
+		int i = 0;
+		while ((i = scanner.nextInt()) != n) {
+			if (i < n) {
+				System.out.println("lower");
+				count += i;
+			} else {
+				System.out.println("higher");
+				count += i;
+			}
+		}
+		return count;
+	}
+	//349
+	public int[] intersection(int[] nums1, int[] nums2) {
+		//Map<K, V> map = new HashMap<K, V>;
+		Set<Integer> set =new HashSet<Integer>();
+		Set<Integer> setNew = new HashSet<Integer>();
+		int[] result;
+		for (int i = 0; i < nums1.length; i++) {
+			set.add(nums1[1]);
+		}
+		for (int i = 0; i < nums2.length; i++) {
+			if(!set.contains(nums2[i])){
+				
+			}
+			
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		// 1
+		// int[] nums = {2, 7, 11, 15};
+		// int target = 9;
+		// int[] result = twosum(nums, target);
+		// for(int i :result){
+		// System.out.println(i);
+		// 375
+		// Scanner s = new Scanner(System.in);
+		// String name = s.nextLine();
+		// int ival = s.nextInt();
+		// System.out.println(ival + "," + name);
+		System.out.println(getMoneyAmount(10));
+
+	}
+
+}

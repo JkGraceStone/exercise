@@ -1,0 +1,12 @@
+package leet.array;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FindDisappearedNumbers {
+	public static List<Integer>  findDisappearedNumbers(int[] nums){
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		return list; 
+	}
+}

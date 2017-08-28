@@ -1,0 +1,32 @@
+package HuaWei;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class ZhouWei {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			int[] nums = new int[n];
+			if (n > 0) {
+				for (int i = 0; i < n; i++) {
+					nums[i] = sc.nextInt();
+				}
+			}
+		}
+	}
+	//1.数组求和,数据求最大值
+	public static int sumArray(int[] arr){
+		int sum = 0;
+		int min = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+			min = min<arr[i] ? min : arr[i];
+		}
+		return sum*min;
+	}
+	//1.数据求最小值的方法
+
+}

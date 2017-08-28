@@ -1,0 +1,61 @@
+package HuaWei;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class ZWei2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int max =0;
+        int maxFirst =0;
+        int maxSencond =0;
+        int maxThird =0;
+        int count = in.nextInt();
+        List<Integer> list = new ArrayList<Integer>();
+        	
+        for(int i=0;i<count; i++){
+        	 int b = in.nextInt();
+        	list.add(b);
+        }
+      
+        for(Integer item : list){
+        	if(item > maxFirst)
+        		maxFirst = item;
+        }
+        
+        max = maxFirst * maxFirst;
+        
+        for(Integer item : list){
+        	if(item == maxFirst)
+        		continue;
+        	int result = item* (item+maxFirst);
+        	if(result > max)
+        		max = result;
+        }
+        
+      
+        
+        for(Integer item1 : list){
+        	maxSencond =0;
+        	maxThird =0;
+        	for(Integer item2 : list){
+            	if(item2<=item1)
+            		continue;
+               	maxSencond =  item2;
+        		for(Integer item3 : list){
+        			if(item3<=item2)
+                		continue;
+        			maxThird = item3;
+        			int result = item1* (item1+maxSencond+maxThird);
+        			if(result > max){
+                		max = result;
+                	}
+                	
+                }
+            }
+        }
+        
+        System.out.println(max);
+        
+    }
+}

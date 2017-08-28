@@ -1,0 +1,58 @@
+package nowcoder.interviewExperience;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class day170820 {
+
+	public static void main(String[] args) {
+//练习Java的lambda表达式。
+		List<String> names = Arrays.asList("peter", "anna", "mike", "xenia"); 
+		//1第一种写法：外部类或者同包下的累的使用
+		Comparator mycomparetor = new Mycomparetor();
+		Collections.sort(names, mycomparetor);
+		System.out.println(names);
+		//第二种写法：
+		Collections.sort(names, new Comparator<T>() {
+			@Override
+			public int compare(T o1, T o2) {
+				return 0;
+			};
+		});
+		
+		
+		
+	}
+//	网易Java开发
+//	1，数组一遍遍历，把所有的零放在数组头部【设两个指针，指向当前0元素和非零元素，交换即可】
+//	2，单链表，一次遍历判断回文数
+//	3，两个字符串A，B，多少步，可以把字符串a转换成字符串b，可以字符旋转，剪切
+//	4，索引类别，创建，为什么快，数据库底层b加树，b加和b树区别
+//	5，jdk7和jdk8的区别
+//	6，怎么设置  jvm参数
+
+	public static void wangyi1(int[] nums){
+		for (int i = 0, j = nums.length - 1; i < j; ) {
+			while(nums[i]==0)i++;
+			while(nums[j]!=0)j--;
+			int temp = nums[i];
+			nums[i] = nums[j];
+			nums[j] = temp;
+			i++;
+			j--;
+		}
+	}
+	
+
+}
+class Mycomparetor implements Comparator<String>{
+
+	@Override
+	public int compare(String str1, String str2) {
+//		return 0;
+		return str1.compareTo(str2);
+	}
+	
+}

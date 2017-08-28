@@ -1,0 +1,37 @@
+package leet.string;
+
+import java.util.Scanner;
+
+public class FindMatch {
+	public static void main(String[] args) {
+		Scanner  scanner = new Scanner(System.in);
+		System.out.println(findMatch(scanner.nextLine(),scanner.nextLine()));
+	}
+	public static int findMatch(String str1,String str2){
+		//1.处理边界情况,长度不等，或者非数值。
+		if (str1.length()!= str2.length()) {
+			return -1;
+		}
+		try {
+			int i = Integer.parseInt(str1);
+			int j = Integer.parseInt(str2);
+		} catch (NumberFormatException e) {
+			return -1;
+		}
+		//2.主要业务情况
+		char[] c1= str1.toCharArray();
+		char[] c2 = str2.toCharArray();
+		int maxCount = 0;
+		int nowCount = 0;
+		for (int i = 0; i < c1.length; i++) {
+			if(c1[i]==c2[i]){
+				nowCount++;
+				maxCount = Math.max(maxCount, nowCount);
+			}else {
+				nowCount = 0;
+			}
+		}
+		return maxCount < 2 ? 1:maxCount;
+	}
+
+}

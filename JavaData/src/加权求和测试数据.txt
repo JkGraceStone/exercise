@@ -1,0 +1,4 @@
+api_tags	mashup_tags
+"mapping_sports,0.2,0.8"	"travel_deadpool,0.3,0.5"
+"travel_deadpool,0.6,0.6"	"golf_mapping,0.2,0.6"
+"global_sms,0.6,0.8"	"mapping_sports,0.3,0.8"
