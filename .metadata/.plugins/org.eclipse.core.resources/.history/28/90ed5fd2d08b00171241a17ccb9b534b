@@ -2,7 +2,6 @@ package nowcoder.LeetCode;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class TreeMinDeep {
 	public class TreeNode {
@@ -80,37 +79,7 @@ public class TreeMinDeep {
 	        return cnt;
 	    }
 	}
-	//方法1广度优先遍历，非递    归包含深度递归的算法
-		public class Solution2 {
-		    public int run(TreeNode root) {
-		       if(root==null)
-		            return 0;
-		       Stack<TreeNode> sta = new Stack<TreeMinDeep.TreeNode>();
-		       sta.add(root);
-		        int cnt=0;
-		        int result = Integer.MAX_VALUE;
-		        while(!sta.isEmpty())
-		        {
-		           // int size=sta.size();
-		            ++cnt;//这里也需要修改。
-		            //for(int i=0;i<size;++i)//改为广度的话，这里需要修改。
-		            //{
-		                TreeNode cur=sta.pop();
-		                if(cur.left==null&&cur.right==null){         
-		                   result = result<cnt+1? result:cnt;
-		                	continue;
-		                }
-		                if(cur.right!=null){
-		                    sta.add(cur.right);
-		                    ++cnt;
-		                 }
-		                 if(cur.left!=null){          
-		                	sta.push(cur.left);
-		                	++cnt;
-		                 }
-		            //}
-		        }
-		        return cnt;
-		    }
-		}
+	
+
+
 }

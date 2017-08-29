@@ -88,26 +88,19 @@ public class TreeMinDeep {
 		       Stack<TreeNode> sta = new Stack<TreeMinDeep.TreeNode>();
 		       sta.add(root);
 		        int cnt=0;
-		        int result = Integer.MAX_VALUE;
 		        while(!sta.isEmpty())
 		        {
 		           // int size=sta.size();
-		            ++cnt;//这里也需要修改。
-		            //for(int i=0;i<size;++i)//改为广度的话，这里需要修改。
+		            ++cnt;
+		            //for(int i=0;i<size;++i)
 		            //{
 		                TreeNode cur=sta.pop();
-		                if(cur.left==null&&cur.right==null){         
-		                   result = result<cnt+1? result:cnt;
-		                	continue;
-		                }
-		                if(cur.right!=null){
+		                if(cur.left==null&&cur.right==null)         
+		                    return cnt;             
+		                if(cur.right!=null)
 		                    sta.add(cur.right);
-		                    ++cnt;
-		                 }
-		                 if(cur.left!=null){          
+		                 if(cur.left!=null)          
 		                	sta.push(cur.left);
-		                	++cnt;
-		                 }
 		            //}
 		        }
 		        return cnt;

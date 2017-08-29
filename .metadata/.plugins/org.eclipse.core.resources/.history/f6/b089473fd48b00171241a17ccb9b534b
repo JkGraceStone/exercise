@@ -97,8 +97,8 @@ public class TreeMinDeep {
 		            //{
 		                TreeNode cur=sta.pop();
 		                if(cur.left==null&&cur.right==null){         
-		                   result = result<cnt+1? result:cnt;
-		                	continue;
+		                   result = result<cnt? result:cnt;
+		                	break;
 		                }
 		                if(cur.right!=null){
 		                    sta.add(cur.right);
