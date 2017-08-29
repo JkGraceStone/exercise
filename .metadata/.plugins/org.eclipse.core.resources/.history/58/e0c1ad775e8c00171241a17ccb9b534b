@@ -176,25 +176,13 @@ public class Sort {
 					swap[m] = a[j++];
 				}
 			}
-			while(i<=u1) swap[m++] = a[i++];//如果上一个for循环，是j>u2跳出的会执行这段代码（说明子数组2已经归并完成），将子数组1中剩余的元素放入到数组swap中。
-			while(j<=u2) swap[m++] = a[j++];//如果上一个for循环，是1>u1跳出的会执行这段代码（说明子数组1已经归并完成），将子数组2中剩余的元素放入到数组swap中。
+			while(i<=u1) swap[m++] = a[i++];
+			while(j<=u2) swap[m++] = a[j++];
 			
 			l1 = u2 +1;//3第三个有序数组的上界限。非常经典。
 		}
 		//4将原始数组中，只够一组的数据元素，顺序的放到数组swap中。
-		for(i = l1;i<a.length;i++,m++) swap[m] = a[i];
-	}
-	public static void mergeSort(int[] a){
-		int[] swap = new int[a.length];
-		int k = 1;
-		while(k<1){
-			merge(a, swap, k);
-			//将元素从零时数组swap中放回到数组a中。
-			for (int i = 0; i < a.length; i++)
-				a[i] = swap[i];
-			//调整每个子数组的长度。
-			k *= 2;
-		}
+		for(i = l1;i<n;i++,m++) swap[m] = a[i];
 	}
 	
 	

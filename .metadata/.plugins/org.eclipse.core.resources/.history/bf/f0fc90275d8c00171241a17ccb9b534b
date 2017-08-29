@@ -167,35 +167,22 @@ public class Sort {
 		while(l1+k <= a.length - 1){
 			l2 = l1+k;//第二个有序子数组的下界low 
 			u1 = l2 -1;//第一个有序子数组的上界up 
-			u2 = (l2 + k -1 <= a.length -1)? l2+k-1 : a.length -1;//1第二个有序子数组的上界low 
-			//2从两个子数组找小的元素，插入到我们的新数组中，直到某一个子数组已经找完，那么另外一个没有找完的子数组剩下的元素就比已经找完的这个要大。把剩下的全部遍历完就可以了。
+			u2 = (l2 + k -1 <= a.length -1)? l2+k-1 : a.length -1;//第二个有序子数组的上界low 
+			//从两个子数组找小的元素，插入到我们的新数组中，直到某一个子数组已经找完，那么另外一个没有找完的子数组剩下的元素就比已经找完的这个要大。把剩下的全部遍历完就可以了。
 			for(i = l1,j = l2;i<=u1&&j<=u2;m++){
 				if(a[i]<=a[j]){//稳定
-					swap[m] = a[i++];
+					swap[m] = a[i];
+					i++;
 				}else{
-					swap[m] = a[j++];
+					swap[m] = a[j];
+					j++;
 				}
 			}
-			while(i<=u1) swap[m++] = a[i++];//如果上一个for循环，是j>u2跳出的会执行这段代码（说明子数组2已经归并完成），将子数组1中剩余的元素放入到数组swap中。
-			while(j<=u2) swap[m++] = a[j++];//如果上一个for循环，是1>u1跳出的会执行这段代码（说明子数组1已经归并完成），将子数组2中剩余的元素放入到数组swap中。
+			while(i<=u1) swap[m++] = a[i++];
+			while(j<=u2) swap[m++] = a[j++];
 			
-			l1 = u2 +1;//3第三个有序数组的上界限。非常经典。
-		}
-		//4将原始数组中，只够一组的数据元素，顺序的放到数组swap中。
-		for(i = l1;i<a.length;i++,m++) swap[m] = a[i];
-	}
-	public static void mergeSort(int[] a){
-		int[] swap = new int[a.length];
-		int k = 1;
-		while(k<1){
-			merge(a, swap, k);
-			//将元素从零时数组swap中放回到数组a中。
-			for (int i = 0; i < a.length; i++)
-				a[i] = swap[i];
-			//调整每个子数组的长度。
-			k *= 2;
+			l1 = u2 +1;//第三个有序数组的上界限。非常经典。
 		}
 	}
-	
 	
 }
