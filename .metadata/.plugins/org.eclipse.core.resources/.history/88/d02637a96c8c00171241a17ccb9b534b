@@ -187,7 +187,7 @@ public class Sort {
 	public static void mergeSort(int[] a){
 		int[] swap = new int[a.length];
 		int k = 1;
-		while(k<a.length){
+		while(k<1){
 			merge(a, swap, k);
 			//将元素从零时数组swap中放回到数组a中。
 			for (int i = 0; i < a.length; i++)

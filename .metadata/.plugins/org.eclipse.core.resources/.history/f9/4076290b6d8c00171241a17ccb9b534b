@@ -7,6 +7,8 @@ public class Sort {
 		// TODO Auto-generated method stub
 		//10:06  -- 11:07直接手写两个排序的代码了，还有优化，挺好的。
 		int[] a = {64,5,7,889,6,24};
+		int i = 0;
+		System.out.println(a[i++]);
 		inserSort3(a);
 		for(int i : a)
 		System.out.print(i+" ");
