@@ -201,41 +201,5 @@ public class Sort {
 	/**
 	 * 堆排序实现：经典。
 	 */
-	public static void heapSort(int[] a){
-		//1.把最大堆的堆顶元素和当前最大堆的最后一个元素交换
-		//2.最大堆元素个数减1
-		//3.调整根节点，使之继续满足最大堆的定义。
-		int temp;
-		initCreateHeap(a);
-		for (int i = a.length - 1; i > 0; i--) {
-			temp = a[0];
-			a[0] = a[i];
-			a[i] = temp;
-			createHeap(a, i,0);//这里i全部是堆的元素个数。
-		}
-	}
-	public static void initCreateHeap(int[] a){
-		//左右孩子都是符合最大堆的约定。
-		//原始状态第一个可能不符合最大堆定义的是第一个非叶子节点。从这个位置出发，依次创建最大堆。
-		for(int i = (a.length-1)/2;i >= 0;i--){
-			createHeap(a,a.length, i);
-		}
-	}
-	public static void createHeap(int[] a,int n , int h){
-		int i = h ,j = 2*h + 1;
-		int flag = 0;
-		int temp = a[h];
-		//找出左右孩子中较大者，重复向下筛选。
-		while(j<n && flag != 1){
-			if(h < n-1 && a[j] < a[j+1]) j++;//找到左右孩子中较大者。
-			if(temp > a[j]){
-				flag = 1;//如果比左右孩子中最大者都大，那么就标记结束筛选条件，跳出循环。
-			}else {
-				a[i] = a[j];//这里就是a[i],不能是a[h]。把子树中的最大者放到i位置。因为这样处理之后，如果直接把temp放入a[j],可能子树就不符合最大堆了。所以还要找到合适的位置放入才行。
-				i = j;
-				j = 2*i +1;//让子树执行同样的操作，循环。
-			}
-		}
-		a[i] = temp;//把等待放入的元素，放入到它应该放入的位置中。
-	}
+	
 }

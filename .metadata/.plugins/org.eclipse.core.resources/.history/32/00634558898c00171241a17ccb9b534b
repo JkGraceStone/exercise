@@ -211,7 +211,7 @@ public class Sort {
 			temp = a[0];
 			a[0] = a[i];
 			a[i] = temp;
-			createHeap(a, i,0);//这里i全部是堆的元素个数。
+			createHeap(a, i,0);//这里的i决定了我们的可以用一個另外的方法。这两个方法是可以统一的，
 		}
 	}
 	public static void initCreateHeap(int[] a){
