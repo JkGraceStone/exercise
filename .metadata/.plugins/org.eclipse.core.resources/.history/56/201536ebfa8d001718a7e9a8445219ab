@@ -1,0 +1,42 @@
+package HuaWei;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.swing.text.ChangedCharSetException;
+
+public class ZWei {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		long s = in.nextLong();
+		long n = in.nextLong();
+		long m = in.nextLong();
+		long result = 1;
+		result = (long) ((Math.pow(Math.pow(s, n),m))%1000000007);
+		System.out.println(result);
+	}
+	public static void test2(String[] args){
+		int maxlen = 0, sum = 0, currlen = 0;
+		Scanner in = new Scanner(System.in);
+		int size = in.nextInt();
+		int k = in.nextInt();
+		String str  = in.next();
+		char[] a = str.toCharArray();
+		for(int i = 0; i < a.length; ++i)
+		{
+		    sum = 0;
+		    for(int j = i; j < a.length; ++j)
+		    {
+		        currlen = j - i + 1;
+		        sum += int(A[j]);
+		        if(currlen%2 == 0 && sum == currlen/2 && currlen > maxlen)
+		            maxlen = currlen;
+		    }
+		}
+	}
+	
+
+}

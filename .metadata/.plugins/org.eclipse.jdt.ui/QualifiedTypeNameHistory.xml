@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="org.apache.hadoop.mapreduce.lib.output.FileOutputFormat"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.fs.Path"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="nowcoder.interviewExperience.Mycomparetor"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
@@ -34,7 +33,6 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="javax.naming.spi.DirStateFactory.Result"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.text.ChangedCharSetException"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -43,4 +41,7 @@
 <fullyQualifiedTypeName name="javax.xml.transform.Templates"/>
 <fullyQualifiedTypeName name="java.security.AlgorithmConstraints"/>
 <fullyQualifiedTypeName name="javax.swing.text.StyleContext.SmallAttributeSet"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
 </qualifiedTypeNameHistroy>

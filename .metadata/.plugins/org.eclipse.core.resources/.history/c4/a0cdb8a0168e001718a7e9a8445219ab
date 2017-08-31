@@ -1,0 +1,54 @@
+package HuaWei;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.CountDownLatch;
+
+import javax.swing.text.ChangedCharSetException;
+
+public class ZWei {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		long s = in.nextLong();
+		long n = in.nextLong();
+		long m = in.nextLong();
+		long result = 1;
+		result = (long) ((Math.pow(Math.pow(s, n),m))%1000000007);
+		System.out.println(result);
+	}
+	public static void test2(String[] args){
+		Scanner in = new Scanner(System.in);
+		int size = in.nextInt();
+		int k = in.nextInt();
+		String str  = in.next();
+		char[] a = str.toCharArray();
+		int sum1=0;
+		int maxsum = 0;
+		int result = 0;
+		for(int i = 0; i < a.length; ++i)
+		{
+		    sum1 = 0;
+		    int k1 = k;
+		    for(int j = i; j < a.length; ++j)
+		    {
+
+		    	if(a[j]==1) sum1++;
+		    	if(a[j]==0&&k1-->0){
+		    		sum1++;
+		    	}
+		    }
+		    if(maxsum == sum1){
+		    	result++;
+		    }else if (maxsum <= sum1) {
+				result = 1;
+				maxsum = sum1;
+			}
+		}
+		System.out.println(result);
+	}
+	
+
+}

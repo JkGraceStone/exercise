@@ -1,0 +1,40 @@
+package HuaWei;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.swing.text.ChangedCharSetException;
+
+public class ZWei {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int res;
+
+		int rows = 0;
+		int cols = 0;
+		rows = Integer.parseInt(in.nextLine().trim());
+		cols = Integer.parseInt(in.nextLine().trim());
+
+		int[][] _M = new int[rows][cols];
+		for (int _M_i = 0; _M_i < rows; _M_i++) {
+			String row_x = String.valueOf(in.nextLine().trim());
+			String[] row_y = row_x.split(",");
+			for (int _M_j = 0; _M_j < cols; _M_j++) {
+				_M[_M_i][_M_j] = Integer.parseInt(row_y[_M_j]);
+
+			}
+		}
+
+		if (in.hasNextLine()) {
+			in.nextLine();
+		}
+
+		res = findCircleNum(_M);
+		System.out.println(String.valueOf(res));
+
+	}
+
+}
