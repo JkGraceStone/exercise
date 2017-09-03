@@ -94,7 +94,7 @@ class FilterRescorer implements IDRescorer {
         return isFiltered(id) ? Double.NaN : originalScore;
     }
 
-    @Override
+ //   @Override
     public boolean isFiltered(long id) {
         return userids.contains(id);
     }

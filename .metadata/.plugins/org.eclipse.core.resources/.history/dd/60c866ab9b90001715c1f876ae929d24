@@ -246,9 +246,8 @@ public class Sort {
 	/**
 	 * 基数排序
 	 * 桶排序。
-	 * 9.3号2017
+	 * 
 	 */
-	//到此八大排序全部搞定了。插希选堆，快速归推。
 	public static void radixSort(int[] a,int m,int d){
 		//1创建链式队列数组对象
 		Queue[] myQueue = new Queue[d];
@@ -256,19 +255,19 @@ public class Sort {
 			Queue<Integer> temp = new LinkedList<Integer>();
 			myQueue[i] = temp;
 		}
-		//2进行m次排序
+		//进行m次排序
 		int power = 1;
 		int l = 0;
 		for (int i = 0;i<a.length;i++){
 			if(i==0) power = 1;
 			else power*=d;
-			//3依次将n个元素，按第k位的大小放入到相应的队列中。
+			//依次将n个元素，按第k位的大小放入到相应的队列中。
 			for(int j = 0;j<a.length;j++){
 				int k=a[j]/power - (a[j]/(power*d))*d;
 				myQueue[k].offer(a[j]);
 			}
 			
-			//4顺序回收队列中的数据元素到数据a中
+			//顺序回收队列中的数据元素到数据a中
 			for(int j = 0;j<d;j++){
 				while(myQueue[j].isEmpty()){
 					a[l++] = (int) myQueue[j].poll();
