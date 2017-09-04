@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ZWei.java&apos; to &apos;HuaWei.ZWei.java&apos;&#x0D;&#x0A;- Original project: &apos;JavaData&apos;&#x0D;&#x0A;- Destination element: &apos;HuaWei.ZWei.java&apos;&#x0D;&#x0A;- Original element: &apos;HuaWei.ZWei.java&apos;" description="Copy compilation unit" destination="/src&lt;HuaWei{ZWei.java" element1="/src&lt;HuaWei{ZWei.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1504489538941" units="1" version="1.0"/>
+</session>

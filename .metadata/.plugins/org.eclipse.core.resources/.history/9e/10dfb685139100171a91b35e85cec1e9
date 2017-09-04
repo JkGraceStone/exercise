@@ -1,0 +1,21 @@
+package HuaWei;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.CountDownLatch;
+
+import javax.swing.text.ChangedCharSetException;
+
+public class cjm {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		//当一个系统来处理就好。
+		while(in.hasNext()){
+			
+		}
+	}
+}
